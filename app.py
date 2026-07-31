@@ -5,7 +5,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import joblib
+import pickle
 import os
 
 # =========================================
@@ -39,7 +39,7 @@ def load_model():
         st.code(os.listdir())
         return None
     
-    model = joblib.load(model_path)
+    model = pickle.load(model_path)
     return model
 
 model = load_model()
