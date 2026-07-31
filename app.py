@@ -1,6 +1,6 @@
 # =========================================
 # Customer Churn Prediction Web App
-# Using Pickle (No joblib dependency)
+# Using Pickle - Model in Models folder
 # =========================================
 
 import streamlit as st
@@ -26,25 +26,19 @@ st.markdown("### Predict if a bank customer will churn or stay")
 st.markdown("---")
 
 # =========================================
-# Load Model using Pickle
+# Load Model using Pickle - Model Path Updated
 # =========================================
 @st.cache_resource
-# Try multiple paths
 def load_model():
-    possible_paths = [
-        "customer_churn_model.pkl",
-        "Models/customer_churn_model.pkl",
-        "models/customer_churn_model.pkl"
-    ]
+    # Model file path - Now looking in Models folder
+    model_path = "Models/customer_churn_model.pkl"
     
-    for path in possible_paths:
-        if os.path.exists(path):
-            with open(path, "rb") as f:
-                model = pickle.load(f)
-            return model
-    
-    st.error("❌ Model file not found in any location!")
-    return None
+    # Check if model exists
+    if not os.path.exists(model_path):
+        st.error(f"❌ Model file not found! Please ensure '{model_path}' exists.")
+        st.info("📁 Current directory contents:")
+        st.code(os.listdir())
+        return None
     
     # Load model using pickle
     with open(model_path, "rb") as f:
