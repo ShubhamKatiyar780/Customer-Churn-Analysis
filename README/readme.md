@@ -239,6 +239,13 @@ Customer-Churn-Analysis/
 
 ---
 
+## 🌐 Live Demo
+
+Try the Customer Churn Predictor live here:
+👉 [Customer Churn Prediction App](https://customer-churn-analysis-khd6cqhcjzuno8ytdjr3s5.streamlit.app)
+
+---
+
 ## 🚀 How to Run
 
 ### Step 1: Clone the Repository
